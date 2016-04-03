@@ -123,7 +123,7 @@ public class ShowUsersFragment extends ListFragment {
                     cv.put(DatabaseHelper.PERSON_LOGIN, listPersons.get(i).getLogin());
                     cv.put(DatabaseHelper.PERSON_PASSWORD, listPersons.get(i).getPassword());
                     cv.put(DatabaseHelper.PERSON_FIRST_NAME, listPersons.get(i).getFirstName());
-                    cv.put(DatabaseHelper.PERSON_LAST_NAME, listPersons.get(i).getLogin());
+                    cv.put(DatabaseHelper.PERSON_LAST_NAME, listPersons.get(i).getLastName());
                     cv.put(DatabaseHelper.PERSON_GENDER, listPersons.get(i).getGender());
 
                     mDatabaseHelper.getWritableDatabase().insert(DatabaseHelper.DATABASE_TABLE, DatabaseHelper.PERSON_LOGIN, cv);
@@ -208,7 +208,7 @@ public class ShowUsersFragment extends ListFragment {
     @Override
     public void onStop() {
         super.onStop();
-//        saveList(getDatabasePersons());
+
         try {
             new SaveListTask().execute(getDatabasePersons());
         } catch (Exception e) {

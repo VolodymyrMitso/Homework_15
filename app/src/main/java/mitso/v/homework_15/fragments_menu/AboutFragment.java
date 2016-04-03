@@ -1,6 +1,8 @@
 package mitso.v.homework_15.fragments_menu;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ import mitso.v.homework_15.R;
 public class AboutFragment extends android.support.v4.app.Fragment {
 
     private TextView mTextView_ShowField;
+    private Handler handler;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -26,16 +29,40 @@ public class AboutFragment extends android.support.v4.app.Fragment {
 
         mTextView_ShowField = (TextView) view.findViewById(R.id.tv_showField_AF);
 
+        handler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                switch (msg.what) {
+                    case 1:
+                        loadAssetText(mTextView_ShowField);
+                        break;
+                    case 2:
+                        loadRawText(mTextView_ShowField);
+                        break;
+                }
+            }
+        };
+
         mButton_LoadFromAsset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadAssetText(mTextView_ShowField);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        handler.sendEmptyMessage(1);
+                    }
+                }).start();
             }
         });
         mButton_LoadFromRaw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadRawText(mTextView_ShowField);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        handler.sendEmptyMessage(2);
+                    }
+                }).start();
             }
         });
 
