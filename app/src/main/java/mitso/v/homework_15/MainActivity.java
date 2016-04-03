@@ -34,8 +34,6 @@ public class MainActivity extends AppCompatActivity implements EventHandler {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-//        persons = loadList();
-
         try {
             LoadListTask loadListTask = new LoadListTask();
             loadListTask.execute();
@@ -61,8 +59,6 @@ public class MainActivity extends AppCompatActivity implements EventHandler {
     @Override
     public void signIn(String _login, String _password, AlertDialog _alertDialog) {
 
-//        persons = loadList();
-
         try {
             LoadListTask loadListTask = new LoadListTask();
             loadListTask.execute();
@@ -70,7 +66,6 @@ public class MainActivity extends AppCompatActivity implements EventHandler {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
 
         MainSupport.signInSupport(this, persons, _login, _password, _alertDialog);
     }
@@ -104,8 +99,6 @@ public class MainActivity extends AppCompatActivity implements EventHandler {
             person.setLastName(_lastName);
             person.setGender(_gender);
 
-//            persons = loadList();
-
             try {
                 LoadListTask loadListTask = new LoadListTask();
                 loadListTask.execute();
@@ -116,14 +109,11 @@ public class MainActivity extends AppCompatActivity implements EventHandler {
 
             persons.add(person);
 
-//            saveList(persons);
-
             try {
                 new SaveListTask().execute(persons);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
 
             args.putString(Constants.KEY_DIALOG_MESSAGE,
                     getResources().getString(R.string.s_dm_user_n) +
@@ -141,8 +131,6 @@ public class MainActivity extends AppCompatActivity implements EventHandler {
     @Override
     protected void onResume() {
         super.onResume();
-
-//        persons = loadList();
 
         try {
             LoadListTask loadListTask = new LoadListTask();
@@ -168,8 +156,6 @@ public class MainActivity extends AppCompatActivity implements EventHandler {
     protected void onPause() {
         super.onPause();
 
-//        persons = loadList();
-
         try {
             LoadListTask loadListTask = new LoadListTask();
             loadListTask.execute();
@@ -177,9 +163,6 @@ public class MainActivity extends AppCompatActivity implements EventHandler {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-//        saveList(persons);
 
         try {
             new SaveListTask().execute(persons);
@@ -249,18 +232,14 @@ public class MainActivity extends AppCompatActivity implements EventHandler {
     }
 
     private class LoadListTask extends AsyncTask<Void, Void, ArrayList<Person>> {
-
         SharedPreferences sharedPreferences;
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             sharedPreferences = getPreferences(MODE_PRIVATE);
         }
-
         @Override
         protected ArrayList<Person> doInBackground(Void ... params) {
-
             List<Person> persons;
             if (sharedPreferences.contains(Constants.SAVED_LIST_KEY)) {
                 String jsonFavorites = sharedPreferences.getString(Constants.SAVED_LIST_KEY, null);
@@ -273,41 +252,21 @@ public class MainActivity extends AppCompatActivity implements EventHandler {
                 return new ArrayList<>();
             return (ArrayList<Person>) persons;
         }
-
         @Override
         protected void onPostExecute(ArrayList<Person> persons) {
             super.onPostExecute(persons);
         }
     }
 
-//    private ArrayList<Person> loadList() {
-//        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
-//        List<Person> persons;
-//        if (sharedPreferences.contains(Constants.SAVED_LIST_KEY)) {
-//            String jsonFavorites = sharedPreferences.getString(Constants.SAVED_LIST_KEY, null);
-//            Gson gson = new Gson();
-//            Person[] personsArray = gson.fromJson(jsonFavorites,
-//                    Person[].class);
-//            persons = Arrays.asList(personsArray);
-//            persons = new ArrayList<>(persons);
-//        } else
-//            return new ArrayList<>();
-//        return (ArrayList<Person>) persons;
-//    }
-
     private class SaveListTask extends AsyncTask<ArrayList<Person>, Void, Void> {
-
         SharedPreferences sharedPreferences;
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             sharedPreferences = getPreferences(MODE_PRIVATE);
         }
-
         @Override
         protected Void doInBackground(ArrayList<Person>... params) {
-
             ArrayList<Person> result = new ArrayList<>();
             for (ArrayList<Person> param : params)
                 result = param;
@@ -316,17 +275,7 @@ public class MainActivity extends AppCompatActivity implements EventHandler {
             String jsonPersons = gson.toJson(result);
             ed.putString(Constants.SAVED_LIST_KEY, jsonPersons);
             ed.apply();
-
             return null;
         }
     }
-
-//    private void saveList(ArrayList<Person> persons) {
-//        SharedPreferences sPref = getPreferences(MODE_PRIVATE);
-//        SharedPreferences.Editor ed = sPref.edit();
-//        Gson gson = new Gson();
-//        String jsonPersons = gson.toJson(persons);
-//        ed.putString(Constants.SAVED_LIST_KEY, jsonPersons);
-//        ed.apply();
-//    }
 }

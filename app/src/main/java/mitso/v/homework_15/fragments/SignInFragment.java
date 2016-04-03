@@ -150,18 +150,14 @@ public class SignInFragment extends Fragment {
     }
 
     private class LoadListTask extends AsyncTask<Void, Void, ArrayList<Person>> {
-
         SharedPreferences sharedPreferences;
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             sharedPreferences = getActivity().getPreferences(getContext().MODE_PRIVATE);
         }
-
         @Override
         protected ArrayList<Person> doInBackground(Void ... params) {
-
             List<Person> persons;
             if (sharedPreferences.contains(Constants.SAVED_LIST_KEY)) {
                 String jsonFavorites = sharedPreferences.getString(Constants.SAVED_LIST_KEY, null);
@@ -174,25 +170,9 @@ public class SignInFragment extends Fragment {
                 return new ArrayList<>();
             return (ArrayList<Person>) persons;
         }
-
         @Override
         protected void onPostExecute(ArrayList<Person> persons) {
             super.onPostExecute(persons);
         }
     }
-
-//    private ArrayList<Person> loadList() {
-//        SharedPreferences sPref = getActivity().getPreferences(getContext().MODE_PRIVATE);
-//        List<Person> persons;
-//        if (sPref.contains(Constants.SAVED_LIST_KEY)) {
-//            String jsonFavorites = sPref.getString(Constants.SAVED_LIST_KEY, null);
-//            Gson gson = new Gson();
-//            Person[] personsArray = gson.fromJson(jsonFavorites,
-//                    Person[].class);
-//            persons = Arrays.asList(personsArray);
-//            persons = new ArrayList<>(persons);
-//        } else
-//            return new ArrayList<>();
-//        return (ArrayList<Person>) persons;
-//    }
 }

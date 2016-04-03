@@ -48,34 +48,21 @@ public class SettingsFragment extends Fragment {
         return view;
     }
 
-//    private void savePreference() {
-//        SharedPreferences sPref = getActivity().getPreferences(getContext().MODE_PRIVATE);
-//        SharedPreferences.Editor ed = sPref.edit();
-//        ed.putString(Constants.SAVED_SORT_BY_KEY, sortDatabaseBy);
-//        ed.apply();
-//    }
-
     private class SaveListTask extends AsyncTask<String, Void, Void> {
-
         SharedPreferences sharedPreferences;
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             sharedPreferences = getActivity().getPreferences(getContext().MODE_PRIVATE);
         }
-
         @Override
         protected Void doInBackground(String ... params) {
-
             String sortBy = "";
             for (String param : params)
                 sortBy = param;
-
             SharedPreferences.Editor ed = sharedPreferences.edit();
             ed.putString(Constants.SAVED_SORT_BY_KEY, sortBy);
             ed.apply();
-
             return null;
         }
     }
@@ -83,7 +70,7 @@ public class SettingsFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-//        savePreference();
+
         try {
             new SaveListTask().execute(sortDatabaseBy);
         } catch (Exception e) {

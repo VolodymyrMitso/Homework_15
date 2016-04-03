@@ -217,18 +217,14 @@ public class ShowUsersFragment extends ListFragment {
     }
 
     private class LoadListTask extends AsyncTask<Void, Void, ArrayList<Person>> {
-
         SharedPreferences sharedPreferences;
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             sharedPreferences = getActivity().getPreferences(getContext().MODE_PRIVATE);
         }
-
         @Override
         protected ArrayList<Person> doInBackground(Void ... params) {
-
             List<Person> persons;
             if (sharedPreferences.contains(Constants.SAVED_LIST_KEY)) {
                 String jsonFavorites = sharedPreferences.getString(Constants.SAVED_LIST_KEY, null);
@@ -241,7 +237,6 @@ public class ShowUsersFragment extends ListFragment {
                 return new ArrayList<>();
             return (ArrayList<Person>) persons;
         }
-
         @Override
         protected void onPostExecute(ArrayList<Person> persons) {
             super.onPostExecute(persons);
@@ -249,18 +244,14 @@ public class ShowUsersFragment extends ListFragment {
     }
 
     private class SaveListTask extends AsyncTask<ArrayList<Person>, Void, Void> {
-
         SharedPreferences sharedPreferences;
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             sharedPreferences = getActivity().getPreferences(getContext().MODE_PRIVATE);
         }
-
         @Override
         protected Void doInBackground(ArrayList<Person>... params) {
-
             ArrayList<Person> result = new ArrayList<>();
             for (ArrayList<Person> param : params)
                 result = param;
@@ -269,39 +260,9 @@ public class ShowUsersFragment extends ListFragment {
             String jsonPersons = gson.toJson(result);
             ed.putString(Constants.SAVED_LIST_KEY, jsonPersons);
             ed.apply();
-
             return null;
         }
     }
-
-//    private ArrayList<Person> loadList() {
-//        SharedPreferences sharedPreferences = getActivity().getPreferences(getContext().MODE_PRIVATE);
-//        List<Person> persons;
-//        if (sharedPreferences.contains(Constants.SAVED_LIST_KEY)) {
-//            String jsonFavorites = sharedPreferences.getString(Constants.SAVED_LIST_KEY, null);
-//            Gson gson = new Gson();
-//            Person[] personsArray = gson.fromJson(jsonFavorites,
-//                    Person[].class);
-//            persons = Arrays.asList(personsArray);
-//            persons = new ArrayList<>(persons);
-//        } else
-//            return new ArrayList<>();
-//        return (ArrayList<Person>) persons;
-//    }
-
-//    private void saveList(ArrayList<Person> persons) {
-//        SharedPreferences sharedPreferences = getActivity().getPreferences(getContext().MODE_PRIVATE);
-//        SharedPreferences.Editor editor = sharedPreferences.edit();
-//        Gson gson = new Gson();
-//        String jsonPersons = gson.toJson(persons);
-//        editor.putString(Constants.SAVED_LIST_KEY, jsonPersons);
-//        editor.apply();
-//    }
-
-//    private String sortBy() {
-//        SharedPreferences sPref = getActivity().getPreferences(getContext().MODE_PRIVATE);
-//        return sPref.getString(Constants.SAVED_SORT_BY_KEY, DatabaseHelper.KEY_ID);
-//    }
 
     private class LoadSortByTask extends AsyncTask<Void, Void, String> {
         SharedPreferences sharedPreferences;
