@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/d_size_50dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d_size_50dp"
+        android:textColor="@color/c_text_value"
+        android:textSize="@dimen/d_textSize_20sp"
+        android:text="@string/s_sortBy"
+        android:gravity="center"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="start"
+        android:layout_marginTop="@dimen/d_size_20dp"
+
+        android:id="@+id/rg_SortBy_RF">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/d_textSize_20sp"
+
+                android:id="@+id/rb_sortByLogin_SF"
+                android:text="@string/s_login_SF" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/d_textSize_20sp"
+
+                android:id="@+id/rb_sortByPassword_SF"
+                android:text="@string/s_password_SF" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/d_textSize_20sp"
+
+                android:id="@+id/rb_sortByFirstName_SF"
+                android:text="@string/s_firstName_SF" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/d_textSize_20sp"
+
+                android:id="@+id/rb_sortByLastName_SF"
+                android:text="@string/s_lastName_SF" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/d_textSize_20sp"
+
+                android:id="@+id/rb_sortByGender_SF"
+                android:text="@string/s_gender_SF" />
+    </RadioGroup>
+
+</LinearLayout>

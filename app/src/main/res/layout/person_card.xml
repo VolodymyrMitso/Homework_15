@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/d_size_10dp">
+
+    <Space
+        android:layout_width="@dimen/d_size_5dp"
+        android:layout_height="@dimen/d_size_17dp"
+        android:id="@+id/space_1"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        style="@style/stl_textView_Key_PC"
+
+        android:text="@string/s_login_PC"
+
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/space_1"
+        android:layout_toStartOf="@+id/space_1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/space_1"/>
+
+    <TextView
+        style="@style/stl_textView_Value_PC"
+
+        android:id="@+id/person_login"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/space_1"
+        android:layout_toEndOf="@+id/space_1"
+        android:layout_alignBottom="@+id/space_1"/>
+
+    <Space
+        android:layout_width="@dimen/d_size_5dp"
+        android:layout_height="@dimen/d_size_17dp"
+        android:id="@+id/space_2"
+        android:layout_below="@+id/space_1"
+        android:layout_marginTop="@dimen/d_size_5dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        style="@style/stl_textView_Key_PC"
+
+        android:text="@string/s_password_PC"
+
+        android:layout_toStartOf="@+id/space_2"
+        android:layout_toLeftOf="@+id/space_2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/space_2"
+        android:layout_alignTop="@+id/space_2" />
+
+    <TextView
+        style="@style/stl_textView_Value_PC"
+
+        android:id="@+id/person_password"
+
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/space_2"
+        android:layout_toEndOf="@+id/space_2"
+        android:layout_alignBottom="@+id/space_2"
+        android:layout_alignTop="@+id/space_2" />
+
+    <Space
+        android:layout_width="@dimen/d_size_5dp"
+        android:layout_height="@dimen/d_size_17dp"
+        android:id="@+id/space_3"
+        android:layout_below="@+id/space_2"
+        android:layout_marginTop="@dimen/d_size_5dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        style="@style/stl_textView_Key_PC"
+
+        android:text="@string/s_firstName_PC"
+
+        android:layout_toLeftOf="@+id/space_3"
+        android:layout_toStartOf="@+id/space_3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/space_3"
+        android:layout_alignTop="@+id/space_3" />
+
+    <TextView
+        style="@style/stl_textView_Value_PC"
+
+        android:id="@+id/person_first_name"
+
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/space_3"
+        android:layout_toEndOf="@+id/space_3"
+        android:layout_alignBottom="@+id/space_3"
+        android:layout_alignTop="@+id/space_3" />
+
+    <Space
+        android:layout_width="@dimen/d_size_5dp"
+        android:layout_height="@dimen/d_size_17dp"
+        android:id="@+id/space_4"
+        android:layout_below="@+id/space_3"
+        android:layout_marginTop="@dimen/d_size_5dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        style="@style/stl_textView_Key_PC"
+
+        android:text="@string/s_lastName_PC"
+
+        android:layout_toLeftOf="@+id/space_4"
+        android:layout_toStartOf="@+id/space_4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/space_4"
+        android:layout_alignTop="@+id/space_4" />
+
+    <TextView
+        style="@style/stl_textView_Value_PC"
+
+        android:id="@+id/person_last_name"
+
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/space_4"
+        android:layout_toEndOf="@+id/space_4"
+        android:layout_alignBottom="@+id/space_4"
+        android:layout_alignTop="@+id/space_4" />
+
+    <Space
+        android:layout_width="@dimen/d_size_5dp"
+        android:layout_height="@dimen/d_size_17dp"
+        android:id="@+id/space_5"
+        android:layout_below="@+id/space_4"
+        android:layout_marginTop="@dimen/d_size_5dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        style="@style/stl_textView_Key_PC"
+
+        android:text="@string/s_gender_PC"
+
+        android:layout_toLeftOf="@+id/space_5"
+        android:layout_toStartOf="@+id/space_5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/space_5"
+        android:layout_alignTop="@+id/space_5" />
+
+    <TextView
+        style="@style/stl_textView_Value_PC"
+
+        android:id="@+id/person_gender"
+
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/space_5"
+        android:layout_toEndOf="@+id/space_5"
+        android:layout_alignBottom="@+id/space_5"
+        android:layout_alignTop="@+id/space_5" />
+
+    <Space
+        android:layout_width="@dimen/d_size_5dp"
+        android:layout_height="@dimen/d_size_17dp"
+        android:id="@+id/space_6"
+        android:layout_below="@+id/space_5"
+        android:layout_marginTop="@dimen/d_size_5dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        style="@style/stl_textView_Key_PC"
+
+        android:text="@string/s_databaseId_PC"
+
+        android:layout_toLeftOf="@+id/space_6"
+        android:layout_toStartOf="@+id/space_6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/space_6"
+        android:layout_alignTop="@+id/space_6" />
+
+    <TextView
+        style="@style/stl_textView_Value_PC"
+
+        android:id="@+id/person_id"
+
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/space_6"
+        android:layout_toEndOf="@+id/space_6"
+        android:layout_alignBottom="@+id/space_6"
+        android:layout_alignTop="@+id/space_6" />
+</RelativeLayout>
